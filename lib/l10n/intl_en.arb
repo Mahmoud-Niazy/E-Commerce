@@ -1,0 +1,21 @@
+{
+  "onBoarding1" : "Discover Daily and Tendy Products" ,
+  "onBoarding2" : "Everything You Need in Our Place" ,
+  "onBoarding3" : "You Will Find Products Of All Categories",
+  "onBoarding4" : "Enjoy Our Discounts",
+  "Next" : "Next" ,
+  "Welcome" : "Welcome" ,
+  "SignInToContinue" : "SignIn to continue" ,
+  "EnterYourEmail" : "Enter Your Email" ,
+  "EnterYourPassword" : "Enter Your Password" ,
+  "EnterYourName" : "Enter Your Name" ,
+  "EnterYourPhone" : "Enter Your Phone" ,
+  "ForgetPassword" : "Forget Password ?" ,
+  "LOGIN" : "LOGIN" ,
+  "DontHaveAnAccount" : "Don\\'t have an account ?" ,
+  "SignUp" : "SignUp" ,
+  "PleaseEnterYourEmail" : "Please Enter Your Email",
+  "PleaseEnterYourPassword" : "Please Enter Your Password",
+  "PleaseEnterYourName" : "Please Enter Your Name",
+  "PleaseEnterYourPhone" : "Please Enter Your Phone"
+}

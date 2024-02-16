@@ -1,0 +1,21 @@
+{
+"onBoarding1" : "أكتشف المنتجات الجديدة" ,
+  "onBoarding2" : "كل ما تريده في مكان واحد" ,
+  "onBoarding3" : "يوجد منتجات من جميع الفئات",
+  "onBoarding4" : "استمتع بالتخفيضات",
+  "Next" : "التالي",
+  "Welcome" : "اهلا بك" ,
+  "SignInToContinue" : "قم بتسجيل الدخول للاستمرار" ,
+  "EnterYourEmail" : "ادخل البريد الخاص بك" ,
+  "EnterYourPassword" : "ادخل كلة المرور" ,
+  "EnterYourName" : "ادخل الاسم" ,
+  "EnterYourPhone" : "ادخل رقم الهاتف" ,
+  "ForgetPassword" : "هل نسيت كلمة المرور ؟" ,
+  "LOGIN" : "تسجيل الدخول" ,
+  "DontHaveAnAccount" : "ليس لديك حساب ؟" ,
+  "SignUp" : "انشئ حساب" ,
+  "PleaseEnterYourEmail" : "ادخل البريد الالكتروني",
+  "PleaseEnterYourPassword" : "ادخل كلمة السر",
+  "PleaseEnterYourName" : "ادخل الاسم",
+  "PleaseEnterYourPhone" : "ادخل رقم الهاتف"
+}
