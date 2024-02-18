@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/data/repos/auth_repo_imp.dart';
+import '../../features/home/data/repos/home_repo.dart';
+import '../../features/home/data/repos/home_repo_imp.dart';
 import '../api_services/api_services.dart';
 
 final serviceLocator = GetIt.instance;
@@ -18,6 +20,9 @@ class ServicesLocator {
     /// Repos
     serviceLocator.registerLazySingleton<AuthRepo>(
           () => AuthRepoImp(serviceLocator()),
+    );
+    serviceLocator.registerLazySingleton<HomeRepo>(
+          () => HomeRepoImp(serviceLocator()),
     );
 
   }

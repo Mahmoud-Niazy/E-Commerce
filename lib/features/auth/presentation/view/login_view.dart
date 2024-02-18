@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/app_assets/app_assets.dart';
 import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/app_styles/app_styles.dart';
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:ecommerce/core/functions/show_snack_bar.dart';
 import 'package:ecommerce/core/service_locator/service_locator.dart';
@@ -10,6 +11,7 @@ import 'package:ecommerce/core/widgets/custom_text_button.dart';
 import 'package:ecommerce/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce/features/auth/data/repos/auth_repo.dart';
 import 'package:ecommerce/features/auth/presentation/view/register_view.dart';
+import 'package:ecommerce/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -107,7 +109,7 @@ class LoginView extends StatelessWidget {
                       height: screenSize.height * .05,
                     ),
                     BlocConsumer<LoginCubit, LoginStates>(
-                      listener: (context, state) {
+                      listener: (context, state) async{
                         if (state is LoginErrorState) {
                           showSnackBar(
                             context: context,
@@ -121,6 +123,10 @@ class LoginView extends StatelessWidget {
                             label: 'Login Successfully',
                             color: AppConstance.primaryColor,
                           );
+                          await CacheHelper.saveData(key: 'token', value: state.token);
+                          navigateAndRemoveUntil(context: context, screen: const LayoutView(),);
+                          emptyFields();
+
                         }
                       },
                       builder: (context, state) {
@@ -165,5 +171,9 @@ class LoginView extends StatelessWidget {
         ),
       ),
     );
+  }
+  emptyFields(){
+    emailController.text = '' ;
+    passwordController.text = '' ;
   }
 }

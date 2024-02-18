@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 
 class ApiServices {
   static late Dio dio;
@@ -18,6 +19,7 @@ class ApiServices {
   }) async{
     dio.options.headers = {
       'lang' : 'en',
+      'Authorization' : CacheHelper.getData(key: 'token'),
     };
     var response = await dio.get(
       endPoint,

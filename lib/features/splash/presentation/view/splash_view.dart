@@ -1,5 +1,8 @@
 import 'package:ecommerce/core/app_assets/app_assets.dart';
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:ecommerce/core/functions/navigation.dart';
+import 'package:ecommerce/core/widgets/shake_transition.dart';
+import 'package:ecommerce/features/layout/presentation/view/layout_view.dart';
 import 'package:ecommerce/features/on_boarding/presentation/view/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
       () {
         navigateAndRemoveUntil(
           context: context,
-          screen: const OnBoardingView(),
+          screen: CacheHelper.getData(key: 'token') != null ? const LayoutView() : const OnBoardingView(),
         );
       },
     );
@@ -34,11 +37,14 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-                        AppAssets.logo,
-                        height: screenSize.height * .5,
-                        width: screenSize.width * .6,
-                      ),
+            ShakeTransition(
+              axis: Axis.vertical,
+              child: Image.asset(
+                          AppAssets.logo,
+                          height: screenSize.height * .5,
+                          width: screenSize.width * .6,
+                        ),
+            ),
           ],
         ),
       ),

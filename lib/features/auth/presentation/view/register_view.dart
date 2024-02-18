@@ -1,12 +1,13 @@
+import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:ecommerce/core/service_locator/service_locator.dart';
 import 'package:ecommerce/core/widgets/custom_button.dart';
 import 'package:ecommerce/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:ecommerce/features/auth/data/models/user_registration_input_model.dart';
 import 'package:ecommerce/features/auth/data/repos/auth_repo.dart';
 import 'package:ecommerce/features/auth/presentation/manager/register_cubit/register_cubit.dart';
+import 'package:ecommerce/features/auth/presentation/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/app_assets/app_assets.dart';
 import '../../../../core/app_constance/app_constance.dart';
 import '../../../../core/app_styles/app_styles.dart';
@@ -141,6 +142,11 @@ class RegisterView extends StatelessWidget {
                             label: 'Register Successfully',
                             color: AppConstance.primaryColor,
                           );
+                          navigateAndRemoveUntil(
+                            context: context,
+                            screen: const LoginView(),
+                          );
+                          emptyTextFields();
                         }
                       },
                       builder: (context, state) {
@@ -173,5 +179,12 @@ class RegisterView extends StatelessWidget {
         ),
       ),
     );
+  }
+  emptyTextFields(){
+    nameController.text = '' ;
+    emailController.text = '' ;
+    passwordController.text = '' ;
+    phoneController.text = '' ;
+
   }
 }
