@@ -43,8 +43,8 @@ class AppStyles {
 
   );
 
-  static const style15 = TextStyle(
-      fontSize: 15,
+  static const style17 = TextStyle(
+      fontSize: 17,
     fontFamily: AppConstance.appFontFamily ,
 
   );

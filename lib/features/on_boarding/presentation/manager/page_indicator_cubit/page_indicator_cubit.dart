@@ -6,10 +6,12 @@ class PageIndicatorCubit extends Cubit<PageIndicatorStates>{
   PageIndicatorCubit(): super(PageIndicatorInitialState());
   static PageIndicatorCubit get(context) => BlocProvider.of<PageIndicatorCubit>(context);
 
+
   int currentIndex = 0;
   goToNextPage(){
     currentIndex++;
     emit(NextPageState());
   }
+
 
 }
