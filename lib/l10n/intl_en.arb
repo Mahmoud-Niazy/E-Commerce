@@ -18,5 +18,11 @@
   "PleaseEnterYourPassword" : "Please Enter Your Password",
   "PleaseEnterYourName" : "Please Enter Your Name",
   "PleaseEnterYourPhone" : "Please Enter Your Phone" ,
-  "Discover" : "Discover"
+  "Discover" : "Discover",
+  "Description" : "Description" ,
+  "numberOfReviews" : "117 reviews",
+  "AddToCart" : "Add To Cart",
+  "showMore" : "show more" ,
+  "showLess" : "show less"
+
 }

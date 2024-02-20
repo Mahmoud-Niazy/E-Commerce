@@ -83,7 +83,7 @@ class OnBoardingView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     PageIndicator(
-                      pageController: pageController,
+                      itemCount: pageViewData.length,
                     ),
                     BlocBuilder<PageIndicatorCubit, PageIndicatorStates>(
                       builder: (context, state) {

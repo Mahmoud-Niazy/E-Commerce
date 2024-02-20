@@ -35,7 +35,7 @@ class GridViewWidget extends StatelessWidget {
           offset: 250,
           child: GridView.count(
             shrinkWrap: true,
-            childAspectRatio: 1 / 1.6,
+            childAspectRatio: 1 / 1.4,
             crossAxisSpacing: screenSize.width * .03,
             mainAxisSpacing: screenSize.height * .015,
             physics: const NeverScrollableScrollPhysics(),

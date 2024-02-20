@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AddToCart":
+            MessageLookupByLibrary.simpleMessage("اضف الي قاشمة المشتريات"),
+        "Description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "Discover": MessageLookupByLibrary.simpleMessage("تسوق"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب ؟"),
@@ -48,12 +51,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بتسجيل الدخول للاستمرار"),
         "SignUp": MessageLookupByLibrary.simpleMessage("انشئ حساب"),
         "Welcome": MessageLookupByLibrary.simpleMessage("اهلا بك"),
+        "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 مراجعه"),
         "onBoarding1":
             MessageLookupByLibrary.simpleMessage("أكتشف المنتجات الجديدة"),
         "onBoarding2":
             MessageLookupByLibrary.simpleMessage("كل ما تريده في مكان واحد"),
         "onBoarding3":
             MessageLookupByLibrary.simpleMessage("يوجد منتجات من جميع الفئات"),
-        "onBoarding4": MessageLookupByLibrary.simpleMessage("استمتع بالتخفيضات")
+        "onBoarding4":
+            MessageLookupByLibrary.simpleMessage("استمتع بالتخفيضات"),
+        "showLess": MessageLookupByLibrary.simpleMessage("اعرض اقل"),
+        "showMore": MessageLookupByLibrary.simpleMessage("اعرض المزيد")
       };
 }

@@ -27,6 +27,7 @@ navigate({
 }) {
   Navigator.of(context).push(
     PageRouteBuilder(
+      opaque: false,
       pageBuilder: (
         context,
         animation1,
@@ -50,4 +51,10 @@ navigateWithoutAnimation({
       builder: (context) => screen,
     ),
   );
+}
+
+navigatePop({
+  required BuildContext context,
+}) {
+  Navigator.of(context).pop();
 }

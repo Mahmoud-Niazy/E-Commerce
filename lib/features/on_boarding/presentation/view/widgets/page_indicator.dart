@@ -6,11 +6,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 //ignore: must_be_immutable
 class PageIndicator extends StatelessWidget {
-  PageController pageController;
+  final int itemCount ;
 
-  PageIndicator({
+  const PageIndicator({
     super.key,
-    required this.pageController,
+    required this.itemCount,
   });
 
   @override
@@ -36,7 +36,7 @@ class PageIndicator extends StatelessWidget {
             separatorBuilder: (context, index) => const SizedBox(
               width: 5,
             ),
-            itemCount: 4,
+            itemCount: itemCount,
           ),
         );
       },

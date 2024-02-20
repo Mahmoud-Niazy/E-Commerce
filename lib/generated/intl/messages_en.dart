@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AddToCart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+        "Description": MessageLookupByLibrary.simpleMessage("Description"),
         "Discover": MessageLookupByLibrary.simpleMessage("Discover"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\\\'t have an account ?"),
@@ -49,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("SignIn to continue"),
         "SignUp": MessageLookupByLibrary.simpleMessage("SignUp"),
         "Welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 reviews"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "Discover Daily and Tendy Products"),
         "onBoarding2": MessageLookupByLibrary.simpleMessage(
@@ -56,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding3": MessageLookupByLibrary.simpleMessage(
             "You Will Find Products Of All Categories"),
         "onBoarding4":
-            MessageLookupByLibrary.simpleMessage("Enjoy Our Discounts")
+            MessageLookupByLibrary.simpleMessage("Enjoy Our Discounts"),
+        "showLess": MessageLookupByLibrary.simpleMessage("show less"),
+        "showMore": MessageLookupByLibrary.simpleMessage("show more")
       };
 }

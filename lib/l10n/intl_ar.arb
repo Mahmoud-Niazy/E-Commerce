@@ -18,5 +18,10 @@
   "PleaseEnterYourPassword" : "ادخل كلمة السر",
   "PleaseEnterYourName" : "ادخل الاسم",
   "PleaseEnterYourPhone" : "ادخل رقم الهاتف" ,
-  "Discover" : "تسوق"
+  "Discover" : "تسوق",
+  "Description" : "الوصف" ,
+  "numberOfReviews" : "117 مراجعه",
+  "AddToCart" : "اضف الي قاشمة المشتريات",
+  "showMore" : "اعرض المزيد" ,
+  "showLess" : "اعرض اقل"
 }
