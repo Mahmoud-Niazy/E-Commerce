@@ -1,8 +1,8 @@
 class ProductModel {
   final int id ;
   final num price ;
-  final num oldPrice ;
-  final num discount ;
+  final num? oldPrice ;
+  final num? discount ;
   final String image ;
   final String name ;
   final String description ;
