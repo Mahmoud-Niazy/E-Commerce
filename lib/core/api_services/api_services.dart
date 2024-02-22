@@ -34,6 +34,7 @@ class ApiServices {
   }) async{
     dio.options.headers = {
       'lang' : 'en',
+      'Authorization' : CacheHelper.getData(key: 'token'),
     };
 
     return await dio.post(
