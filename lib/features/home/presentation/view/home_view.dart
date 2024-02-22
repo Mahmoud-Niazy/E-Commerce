@@ -6,9 +6,11 @@ import 'package:ecommerce/core/widgets/shake_transition.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/carousel_widget.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/grid_view_widget.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/list_of_categories_widget.dart';
-import 'package:ecommerce/features/home/presentation/view/widgets/search_widget.dart';
+import 'package:ecommerce/core/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../generated/l10n.dart';
+import '../../../layout/presentation/manager/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -73,7 +75,13 @@ class HomeView extends StatelessWidget {
                 SizedBox(
                   height: screenSize.height * .03,
                 ),
-                const SearchWidget(),
+                SearchWidget(
+                  onTap: () {
+                    BlocProvider.of<BottomNavigationBarCubit>(context)
+                        .toggle(1);
+                  },
+                  readOnly: true,
+                ),
                 SizedBox(
                   height: screenSize.height * .03,
                 ),

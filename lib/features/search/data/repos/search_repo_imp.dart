@@ -22,7 +22,7 @@ class SearchRepoImp extends SearchRepo {
       );
       if (response.data['status'] == true) {
       List<ProductModel> products = [];
-      response.data['data'].forEach((product) {
+      response.data['data']['data'].forEach((product) {
         products.add(ProductModel.fromJson(product));
       });
       return right(products);

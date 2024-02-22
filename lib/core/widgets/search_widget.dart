@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../core/app_styles/app_styles.dart';
+import '../app_styles/app_styles.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({super.key});
+  final bool readOnly ;
+  final void Function()? onTap ;
+  final void Function(String)? onSubmitted;
+  final TextEditingController? controller ;
+  const SearchWidget({
+    super.key,
+    this.controller,
+    required this.onTap,
+    required this.readOnly,
+    this.onSubmitted ,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +25,22 @@ class SearchWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color: const Color(0xFFF1F1F1),
       ),
-      child: const Row(
+      child: Row(
         children: [
           Expanded(
             child: TextField(
-              decoration: InputDecoration(
+              controller: controller,
+              onSubmitted: onSubmitted,
+              readOnly: readOnly,
+              onTap: onTap,
+              decoration: const InputDecoration(
                 hintText: 'Search',
                 hintStyle: AppStyles.style15Grey,
                 border: InputBorder.none,
               ),
             ),
           ),
-          Icon(
+          const Icon(
             Icons.search,
             color: Colors.black54,
             size: 25,

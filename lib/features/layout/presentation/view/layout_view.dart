@@ -11,51 +11,48 @@ class LayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottomNavigationBarCubit(),
-      child: BlocBuilder<BottomNavigationBarCubit, BottomNavigationBarStates>(
-        builder: (context, state) {
-          var cubit = BottomNavigationBarCubit.get(context);
-          return Scaffold(
-            body: cubit.screens[cubit.currentIndex],
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: cubit.currentIndex,
-              selectedItemColor: AppConstance.primaryColor,
-              unselectedItemColor: Colors.black26,
-              onTap: (index) {
-                cubit.toggle(index);
-              },
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home_outlined,
-                    size: 25,
-                  ),
-                  label: '',
+    return BlocBuilder<BottomNavigationBarCubit, BottomNavigationBarStates>(
+      builder: (context, state) {
+        var cubit = BottomNavigationBarCubit.get(context);
+        return Scaffold(
+          body: cubit.screens[cubit.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: cubit.currentIndex,
+            selectedItemColor: AppConstance.primaryColor,
+            unselectedItemColor: Colors.black26,
+            onTap: (index) {
+              cubit.toggle(index);
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home_outlined,
+                  size: 25,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.search,
-                  ),
-                  label: '',
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.search,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    FontAwesomeIcons.heart,
-                  ),
-                  label: '',
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  FontAwesomeIcons.heart,
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                  ),
-                  label: '',
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.person,
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+                label: '',
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
