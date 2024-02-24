@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/app_constance/app_constance.dart';
 import '../../../../../core/app_styles/app_styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class ProductItem extends StatelessWidget {
   final ProductModel productModel;
@@ -46,8 +47,8 @@ class ProductItem extends StatelessWidget {
                   padding: const EdgeInsets.all(2),
                   decoration:
                       const BoxDecoration(color: AppConstance.primaryColor),
-                  child: const Text(
-                    'Discount',
+                  child: Text(
+                    S.of(context).Discount,
                     style: AppStyles.style13,
                   ),
                 ),

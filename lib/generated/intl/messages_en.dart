@@ -23,7 +23,11 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AddToCart": MessageLookupByLibrary.simpleMessage("Add To Cart"),
+        "All": MessageLookupByLibrary.simpleMessage("All"),
+        "Categories": MessageLookupByLibrary.simpleMessage("Categories"),
+        "Checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
         "Description": MessageLookupByLibrary.simpleMessage("Description"),
+        "Discount": MessageLookupByLibrary.simpleMessage("Discount"),
         "Discover": MessageLookupByLibrary.simpleMessage("Discover"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\\\'t have an account ?"),
@@ -38,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password ?"),
         "LOGIN": MessageLookupByLibrary.simpleMessage("LOGIN"),
+        "MyCart": MessageLookupByLibrary.simpleMessage("My Cart"),
+        "MyFavourites": MessageLookupByLibrary.simpleMessage("My Favourites"),
         "Next": MessageLookupByLibrary.simpleMessage("Next"),
         "PleaseEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please Enter Your Email"),
@@ -47,9 +53,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Enter Your Password"),
         "PleaseEnterYourPhone":
             MessageLookupByLibrary.simpleMessage("Please Enter Your Phone"),
+        "Search": MessageLookupByLibrary.simpleMessage("Search"),
+        "SeeAll": MessageLookupByLibrary.simpleMessage("SeeAll"),
         "SignInToContinue":
             MessageLookupByLibrary.simpleMessage("SignIn to continue"),
         "SignUp": MessageLookupByLibrary.simpleMessage("SignUp"),
+        "TotalPrice": MessageLookupByLibrary.simpleMessage("TotalPrice"),
         "Welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 reviews"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(

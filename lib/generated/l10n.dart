@@ -299,6 +299,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Categories`
+  String get Categories {
+    return Intl.message(
+      'Categories',
+      name: 'Categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SeeAll`
+  String get SeeAll {
+    return Intl.message(
+      'SeeAll',
+      name: 'SeeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get Search {
+    return Intl.message(
+      'Search',
+      name: 'Search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get All {
+    return Intl.message(
+      'All',
+      name: 'All',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Cart`
+  String get MyCart {
+    return Intl.message(
+      'My Cart',
+      name: 'MyCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout`
+  String get Checkout {
+    return Intl.message(
+      'Checkout',
+      name: 'Checkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TotalPrice`
+  String get TotalPrice {
+    return Intl.message(
+      'TotalPrice',
+      name: 'TotalPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discount`
+  String get Discount {
+    return Intl.message(
+      'Discount',
+      name: 'Discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Favourites`
+  String get MyFavourites {
+    return Intl.message(
+      'My Favourites',
+      name: 'MyFavourites',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

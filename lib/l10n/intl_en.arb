@@ -23,6 +23,17 @@
   "numberOfReviews" : "117 reviews",
   "AddToCart" : "Add To Cart",
   "showMore" : "show more" ,
-  "showLess" : "show less"
+  "showLess" : "show less" ,
+  "Categories" : "Categories" ,
+  "SeeAll" : "SeeAll" ,
+  "Search" : "Search",
+  "All" : "All",
+  "MyCart" : "My Cart" ,
+  "Checkout" :  "Checkout",
+  "TotalPrice" : "TotalPrice",
+  "Discount" : "Discount",
+  "MyFavourites" : "My Favourites"
+
+
 
 }

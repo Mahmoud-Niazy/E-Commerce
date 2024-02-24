@@ -1,8 +1,12 @@
 import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/app_styles/app_styles.dart';
+import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:ecommerce/core/widgets/custom_icon_button.dart';
 import 'package:ecommerce/core/widgets/custom_text_button.dart';
 import 'package:ecommerce/core/widgets/shake_transition.dart';
+import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_states.dart';
+import 'package:ecommerce/features/cart/presentation/view/cart_view.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/carousel_widget.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/grid_view_widget.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/list_of_categories_widget.dart';
@@ -44,29 +48,39 @@ class HomeView extends StatelessWidget {
                             ),
                           ),
                           child: CustomIconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              navigate(
+                                context: context,
+                                screen: const CartView(),
+                              );
+                            },
                             icon: Icons.shopping_cart_outlined,
                           ),
                         ),
-                        ShakeTransition(
-                          duration: const Duration(
-                            seconds: 2,
-                          ),
-                          axis: Axis.vertical,
-                          offset: -20,
-                          child: Container(
-                            padding: EdgeInsets.all(screenSize.height * .007),
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppConstance.primaryColor,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                '0',
-                                style: AppStyles.style13,
+                        BlocBuilder<CartCubit, CartStates>(
+                          builder: (context, state) {
+                            return ShakeTransition(
+                              duration: const Duration(
+                                seconds: 3,
                               ),
-                            ),
-                          ),
+                              axis: Axis.vertical,
+                              offset: -20,
+                              child: Container(
+                                padding:
+                                    EdgeInsets.all(screenSize.height * .007),
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppConstance.primaryColor,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '${CartCubit.get(context).cartProducts.length}',
+                                    style: AppStyles.style13,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -92,12 +106,12 @@ class HomeView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Categories',
+                     Text(
+                      S.of(context).Categories,
                       style: AppStyles.style20Bold,
                     ),
                     CustomTextButton(
-                      title: 'See All',
+                      title: S.of(context).SeeAll,
                       onPressed: () {},
                     ),
                   ],

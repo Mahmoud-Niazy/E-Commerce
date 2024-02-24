@@ -29,3 +29,10 @@ class AddOrRemoveCartProductErrorState extends CartStates {
 
   AddOrRemoveCartProductErrorState(this.error);
 }
+
+
+class IncreaseCountState extends CartStates{}
+class DecreaseCountState extends CartStates{}
+
+class CalcTotalPriceState extends CartStates{}
+
