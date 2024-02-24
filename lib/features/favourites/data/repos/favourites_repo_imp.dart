@@ -18,8 +18,8 @@ class FavouritesRepoImp extends FavouritesRepo {
       var response = await apiServices.getData(endPoint: 'favorites');
       if (response['status'] == true) {
         List<ProductModel> favourites = [];
-        response['data']['data'].forEach((product) {
-          favourites.add(ProductModel.fromJson(product['product']));
+        response['data']['data'].forEach((favourite) {
+          favourites.add(ProductModel.fromJson(favourite['product']));
         });
         return right(favourites);
       } else {

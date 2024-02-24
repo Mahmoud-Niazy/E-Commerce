@@ -38,8 +38,8 @@ class ProductDetailsView extends StatelessWidget {
                 background: Stack(
                   children: [
                     ProductImagesPageIndicator(
-                      itemCount: product.images.length,
                       images: product.images,
+                      image: product.image,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20),
@@ -48,7 +48,7 @@ class ProductDetailsView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CircularButton(
-                            icon: Icons.arrow_back,
+                            icon: Icons.arrow_back_ios_new,
                             onPressed: () {
                               navigatePop(context: context);
                             },
@@ -179,6 +179,7 @@ class ProductDetailsView extends StatelessWidget {
                           children: [
                             Column(
                               children: [
+                                if(product.oldPrice != null)
                                 Text(
                                   '${product.oldPrice}',
                                   style: AppStyles.style18Grey.copyWith(

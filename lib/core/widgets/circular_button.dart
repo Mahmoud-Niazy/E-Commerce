@@ -26,6 +26,7 @@ class CircularButton extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Icon(
           icon,
+          size: 20,
           color: iconColor,
         ),
       ),

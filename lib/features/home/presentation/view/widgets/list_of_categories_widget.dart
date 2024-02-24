@@ -30,16 +30,16 @@ class ListOfCategoriesWidget extends StatelessWidget {
         if (state is GetCategoriesLoadingState) {
           return const CustomCircularProgressIndicator();
         }
-        return ShakeTransition(
-          duration: const Duration(seconds: 3),
-          offset: 250,
-          child: SizedBox(
-            height: 45,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  GestureDetector(
+        return SizedBox(
+          height: 45,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ShakeTransition(
+                  duration: const Duration(seconds: 3),
+                  offset: 250,
+                  child: GestureDetector(
                     onTap: () {
                       cubit.colorAllProductCategory();
                       cubit.getAllProducts();
@@ -49,42 +49,42 @@ class ListOfCategoriesWidget extends StatelessWidget {
                       isSelected: cubit.isAllProductsShown,
                     ),
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return ShakeTransition(
+                      duration: Duration(seconds: 4 + index),
+                      offset: 250,
+                      child: GestureDetector(
                         onTap: () {
                           cubit.colorSpecificCategory(index);
                           cubit.getProductsSpecificInCategory(
-                              categoryId: cubit
-                                  .allCategories[index]
-                                  .id);
+                              categoryId: cubit.allCategories[index].id);
                         },
                         child: CategoryItem(
-                            isSelected: cubit
-                                    .isAllProductsShown
+                            isSelected: cubit.isAllProductsShown
                                 ? false
                                 : cubit.currentIndex == index
                                     ? true
                                     : false,
-                            categoryModel:
-                                cubit.allCategories[index]),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        width: 10,
-                      );
-                    },
-                    itemCount: cubit.allCategories.length,
-                  ),
-                ],
-              ),
+                            categoryModel: cubit.allCategories[index]),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 10,
+                    );
+                  },
+                  itemCount: cubit.allCategories.length,
+                ),
+              ],
             ),
           ),
         );

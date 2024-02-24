@@ -23,5 +23,14 @@
   "numberOfReviews" : "117 مراجعه",
   "AddToCart" : "اضف الي قاشمة المشتريات",
   "showMore" : "اعرض المزيد" ,
-  "showLess" : "اعرض اقل"
+  "showLess" : "اعرض اقل",
+  "Categories" : "الفئات" ,
+  "SeeAll" : "عرض الكل",
+  "Search" : "ابحث" ,
+  "All" : "الكل" ,
+  "MyCart" : "بطاقتي",
+  "Checkout" :  "ادفع",
+  "TotalPrice" : "السعر الكلي",
+  "Discount" : "تخفيض" ,
+  "MyFavourites" : "قائمة المفضلة"
 }

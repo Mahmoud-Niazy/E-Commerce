@@ -24,7 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AddToCart":
             MessageLookupByLibrary.simpleMessage("اضف الي قاشمة المشتريات"),
+        "All": MessageLookupByLibrary.simpleMessage("الكل"),
+        "Categories": MessageLookupByLibrary.simpleMessage("الفئات"),
+        "Checkout": MessageLookupByLibrary.simpleMessage("ادفع"),
         "Description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "Discount": MessageLookupByLibrary.simpleMessage("تخفيض"),
         "Discover": MessageLookupByLibrary.simpleMessage("تسوق"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب ؟"),
@@ -38,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور ؟"),
         "LOGIN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "MyCart": MessageLookupByLibrary.simpleMessage("بطاقتي"),
+        "MyFavourites": MessageLookupByLibrary.simpleMessage("قائمة المفضلة"),
         "Next": MessageLookupByLibrary.simpleMessage("التالي"),
         "PleaseEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("ادخل البريد الالكتروني"),
@@ -47,9 +53,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادخل كلمة السر"),
         "PleaseEnterYourPhone":
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
+        "Search": MessageLookupByLibrary.simpleMessage("ابحث"),
+        "SeeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "SignInToContinue":
             MessageLookupByLibrary.simpleMessage("قم بتسجيل الدخول للاستمرار"),
         "SignUp": MessageLookupByLibrary.simpleMessage("انشئ حساب"),
+        "TotalPrice": MessageLookupByLibrary.simpleMessage("السعر الكلي"),
         "Welcome": MessageLookupByLibrary.simpleMessage("اهلا بك"),
         "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 مراجعه"),
         "onBoarding1":

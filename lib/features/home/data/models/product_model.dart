@@ -6,9 +6,9 @@ class ProductModel {
   final String image ;
   final String name ;
   final String description ;
-  final List<String > images ;
-  bool inFav;
-  bool inCart;
+  final List<String >? images ;
+  bool? inFav;
+  bool? inCart;
 
   ProductModel({
     required this.id,
@@ -25,9 +25,11 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String,dynamic>json){
     List<String> productImages = [];
-    json['images'].forEach((image){
-      productImages.add(image);
-    });
+    if(json['images'] != null){
+      json['images'].forEach((image){
+        productImages.add(image);
+      });
+    }
     return ProductModel(
       image: json['image'],
       id: json['id'],

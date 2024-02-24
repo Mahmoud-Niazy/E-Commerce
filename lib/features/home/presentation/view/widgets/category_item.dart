@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/app_styles/app_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/home_cubit/home_cubit.dart';
 import '../../manager/home_cubit/home_states.dart';
 
@@ -46,7 +47,7 @@ class CategoryItem extends StatelessWidget {
                   width: 40,
                 ),
               Text(
-                isForAll ? "All" : categoryModel!.name,
+                isForAll ? S.of(context).All : categoryModel!.name,
                 style: AppStyles.style18.copyWith(
                   color: isSelected ? Colors.white: Colors.black,
                 ),

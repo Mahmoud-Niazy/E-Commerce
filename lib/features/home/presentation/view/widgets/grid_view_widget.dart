@@ -30,22 +30,27 @@ class GridViewWidget extends StatelessWidget {
             ),
           );
         }
-        return ShakeTransition(
-          duration: const Duration(seconds: 3),
-          offset: 250,
-          child: GridView.count(
-            shrinkWrap: true,
-            childAspectRatio: 1 / 1.4,
-            crossAxisSpacing: screenSize.width * .03,
-            mainAxisSpacing: screenSize.height * .015,
-            physics: const NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            children: cubit.homeProducts.map((product) {
-              return ProductItem(
+        return GridView.count(
+          shrinkWrap: true,
+          childAspectRatio: 1 / 1.4,
+          crossAxisSpacing: screenSize.width * .03,
+          mainAxisSpacing: screenSize.height * .015,
+          physics: const NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          children: cubit.homeProducts.map((product) {
+            // return ProductItem(
+            //   productModel: product,
+            // );
+            return ShakeTransition(
+              offset: 250,
+              duration: const Duration(
+                seconds:  3 ,
+              ),
+              child: ProductItem(
                 productModel: product,
-              );
-            }).toList(),
-          ),
+              ),
+            );
+          }).toList(),
         );
       },
     );

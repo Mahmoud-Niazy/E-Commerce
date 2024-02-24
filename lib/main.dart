@@ -1,12 +1,16 @@
 import 'package:ecommerce/core/api_services/api_services.dart';
 import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:ecommerce/core/service_locator/service_locator.dart';
+import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/features/favourites/data/repos/favourites_repo.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:ecommerce/features/splash/presentation/view/splash_view.dart';
 import 'package:ecommerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'features/cart/data/repos/cart_repo.dart';
 import 'features/home/data/repos/home_repo.dart';
 import 'features/layout/presentation/manager/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 
@@ -31,11 +35,22 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => HomeCubit(
             serviceLocator<HomeRepo>(),
-          )..getBanners()..getCategories()..getAllProducts(),
+          )
+            ..getBanners()
+            ..getCategories()
+            ..getAllProducts(),
         ),
+        BlocProvider(
+          create: (context) => FavouritesCubit(
+            serviceLocator<FavouritesRepo>(),
+          )..getFavourites(),
+        ),
+        BlocProvider(
+          create: (context) => CartCubit(serviceLocator<CartRepo>())..getCartProducts(),
+        )
       ],
       child: MaterialApp(
-        locale: const Locale('en'),
+        locale: const Locale('ar'),
         localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

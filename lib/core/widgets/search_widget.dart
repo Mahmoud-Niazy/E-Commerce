@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
 import '../app_styles/app_styles.dart';
 
 class SearchWidget extends StatelessWidget {
@@ -33,8 +34,8 @@ class SearchWidget extends StatelessWidget {
               onSubmitted: onSubmitted,
               readOnly: readOnly,
               onTap: onTap,
-              decoration: const InputDecoration(
-                hintText: 'Search',
+              decoration: InputDecoration(
+                hintText: S.of(context).Search,
                 hintStyle: AppStyles.style15Grey,
                 border: InputBorder.none,
               ),

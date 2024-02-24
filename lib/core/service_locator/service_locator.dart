@@ -1,8 +1,12 @@
+import 'package:ecommerce/features/cart/data/repos/cart_repo.dart';
+import 'package:ecommerce/features/favourites/data/repos/favourites_repo.dart';
 import 'package:ecommerce/features/search/data/repos/search_repo_imp.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/repos/auth_repo.dart';
 import '../../features/auth/data/repos/auth_repo_imp.dart';
+import '../../features/cart/data/repos/cart_repo_imp.dart';
+import '../../features/favourites/data/repos/favourites_repo_imp.dart';
 import '../../features/home/data/repos/home_repo.dart';
 import '../../features/home/data/repos/home_repo_imp.dart';
 import '../../features/search/data/repos/search_repo.dart';
@@ -28,6 +32,12 @@ class ServicesLocator {
     );
     serviceLocator.registerLazySingleton<SearchRepo>(
           () => SearchRepoImp(serviceLocator()),
+    );
+    serviceLocator.registerLazySingleton<FavouritesRepo>(
+          () => FavouritesRepoImp(serviceLocator()),
+    );
+    serviceLocator.registerLazySingleton<CartRepo>(
+          () => CartRepoImp(serviceLocator()),
     );
 
   }
