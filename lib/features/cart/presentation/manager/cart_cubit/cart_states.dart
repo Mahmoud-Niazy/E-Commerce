@@ -20,9 +20,11 @@ class GetCartProductsErrorState extends CartStates {
   );
 }
 
-class AddOrRemoveCartProductLoadingState extends CartStates {}
+class ChangeCartProductsLoadingState extends CartStates {}
 
-class AddOrRemoveCartProductSuccessfullyState extends CartStates {}
+class AddCartProductState extends CartStates {}
+class RemoveCartProductState extends CartStates {}
+
 
 class AddOrRemoveCartProductErrorState extends CartStates {
   final String error;

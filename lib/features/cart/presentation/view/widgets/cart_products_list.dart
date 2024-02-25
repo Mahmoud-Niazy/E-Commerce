@@ -20,10 +20,12 @@ class CartProductsList extends StatelessWidget {
     return BlocBuilder<CartCubit, CartStates>(
       buildWhen: (previous, current) =>
           previous != current &&
-          (current is GetCartProductsSuccessfullyState ||
-              current is GetCartProductsLoadingState ||
-              current is IncreaseCountState ||
-              current is DecreaseCountState),
+              (current is GetCartProductsSuccessfullyState ||
+                  current is GetCartProductsLoadingState ||
+                  current is IncreaseCountState ||
+                  current is DecreaseCountState) ||
+          current is AddCartProductState ||
+          current is RemoveCartProductState|| !(previous is RemoveCartProductState && current is GetCartProductsSuccessfullyState ),
       builder: (context, state) {
         if (state is GetCartProductsLoadingState) {
           return const CustomCircularProgressIndicator();
@@ -71,7 +73,7 @@ class CartProductsList extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                           Text(
+                          Text(
                             S.of(context).TotalPrice,
                             style: AppStyles.style18,
                           ),

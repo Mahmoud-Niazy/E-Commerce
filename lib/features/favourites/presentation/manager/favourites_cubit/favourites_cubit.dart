@@ -17,6 +17,7 @@ class FavouritesCubit extends Cubit<FavouritesStates> {
   static FavouritesCubit get(context) => BlocProvider.of<FavouritesCubit>(context);
 
   getFavourites() async {
+    favouriteProductsIds =[];
     emit(GetFavouritesLoadingState());
     var data = await favouritesRepo.getFavourites();
 
@@ -52,7 +53,8 @@ class FavouritesCubit extends Cubit<FavouritesStates> {
     var data = await favouritesRepo.addOrRemoveFavourite(productId: product.id);
     data.fold(
       (error) => emit(AddOrRemoveFavouriteErrorState(error.errorMessage,),),
-      (success) {
+      (success)async {
+       await getFavourites();
         emit(ChangeFavouritesSuccessState(),);
       },
     );

@@ -6,7 +6,9 @@ import 'cart_states.dart';
 class CartCubit extends Cubit<CartStates> {
   final CartRepo cartRepo;
   List<ProductModel> cartProducts = [];
-  List<int> productsCount = [];
+  List<int> everyProductCount = [];
+  List<int> cartProductsIds =[];
+  int cartProductsCount = 0;
 
   CartCubit(
     this.cartRepo,
@@ -15,9 +17,9 @@ class CartCubit extends Cubit<CartStates> {
   static CartCubit get(context) => BlocProvider.of<CartCubit>(context);
 
   getCartProducts() async {
+    cartProductsIds =[];
     emit(GetCartProductsLoadingState());
     var data = await cartRepo.getCartProducts();
-
     data.fold(
       (error) => emit(GetCartProductsErrorState(
         error.errorMessage,
@@ -25,9 +27,11 @@ class CartCubit extends Cubit<CartStates> {
       (cart) {
         cartProducts = cart;
         for(int i =0; i < cartProducts.length ; i++){
-          productsCount.add(1);
+          everyProductCount.add(1);
+          cartProductsIds.add(cartProducts[i].id);
           // totalPrice += cartProducts[i].price * productsCount[i];
         }
+        cartProductsCount = cartProducts.length;
         emit(GetCartProductsSuccessfullyState(
           cart,
         ));
@@ -37,13 +41,13 @@ class CartCubit extends Cubit<CartStates> {
   }
 
   increaseCount(int index){
-    productsCount[index]++;
+    everyProductCount[index]++;
     calcTotalPrice();
     emit(IncreaseCountState());
   }
 
   decreaseCount(int index){
-    productsCount[index]--;
+    everyProductCount[index]--;
     calcTotalPrice();
     emit(DecreaseCountState());
   }
@@ -51,7 +55,7 @@ class CartCubit extends Cubit<CartStates> {
   calcTotalPrice(){
     num total = 0;
     for (int i =0 ; i<cartProducts.length ;i ++) {
-      total += cartProducts[i].price * productsCount[i];
+      total += cartProducts[i].price * everyProductCount[i];
     }
    return total;
   }
@@ -59,13 +63,28 @@ class CartCubit extends Cubit<CartStates> {
 
 
   addOrRemoveCartProduct({
-    required int productId,
+    required ProductModel product,
   }) async {
-    emit(AddOrRemoveCartProductLoadingState());
-    var data = await cartRepo.addOrRemoveCartProduct(productId: productId);
+    if(cartProducts.contains(product)){
+      cartProducts.remove(product);
+      cartProductsIds.remove(product.id);
+      cartProductsCount--;
+      emit(RemoveCartProductState());
+    }
+    else{
+      cartProducts.add(product);
+      cartProductsIds.add(product.id);
+      cartProductsCount++;
+      emit(AddCartProductState());
+    }
+    var data = await cartRepo.addOrRemoveCartProduct(productId: product.id);
     data.fold(
       (error) => emit(AddOrRemoveCartProductErrorState(error.errorMessage)),
-      (success) => emit(AddOrRemoveCartProductSuccessfullyState()),
+      (success) async{
+        await getCartProducts();
+
+        emit(ChangeCartProductsLoadingState());
+      },
     );
   }
 

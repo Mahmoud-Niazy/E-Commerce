@@ -77,7 +77,7 @@ class SearchItem extends StatelessWidget {
                                   onPressed: () {
                                     FavouritesCubit.get(context)
                                         .addOrRemoveFavourite(product: product);
-                                    FavouritesCubit.get(context).getFavourites();
+
                                   },
                                   iconColor: FavouritesCubit.get(context)
                                           .favouriteProductsIds
