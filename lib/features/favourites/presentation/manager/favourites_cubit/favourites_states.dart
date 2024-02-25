@@ -14,8 +14,11 @@ class GetFavouritesErrorState extends FavouritesStates{
   GetFavouritesErrorState(this.error);
 }
 
-class AddOrRemoveFavouriteLoadingState extends FavouritesStates{}
-class AddOrRemoveFavouriteSuccessfullyState extends FavouritesStates{}
+class AddFavouriteState extends FavouritesStates{}
+class RemoveFavouriteState extends FavouritesStates{}
+
+class ChangeFavouritesSuccessState extends FavouritesStates{}
+
 class AddOrRemoveFavouriteErrorState extends FavouritesStates{
   final String error;
   AddOrRemoveFavouriteErrorState(this.error);

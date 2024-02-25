@@ -34,7 +34,7 @@ class ProductModel {
       image: json['image'],
       id: json['id'],
       price: json['price'],
-      name: json['name'],
+      name: json["name"],
       description: json['description'],
       discount: json['discount'],
       images: productImages,

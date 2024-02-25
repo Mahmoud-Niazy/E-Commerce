@@ -155,7 +155,7 @@ class _ProductCartState extends State<ProductCart>
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: NetworkImage(
-                                        widget.product.image,
+                                        widget.product.image!,
                                       ),
                                     )),
                               ),
@@ -170,7 +170,7 @@ class _ProductCartState extends State<ProductCart>
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          widget.product.name,
+                                          widget.product.name!,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: const TextStyle(

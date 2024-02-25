@@ -1,6 +1,9 @@
 import 'package:ecommerce/core/functions/navigation.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_states.dart';
 import 'package:ecommerce/features/home/presentation/view/product_details_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/app_constance/app_constance.dart';
 import '../../../../../core/app_styles/app_styles.dart';
 import '../../../../../core/widgets/circular_button.dart';
@@ -66,12 +69,24 @@ class SearchItem extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          Expanded(
-                            child: CircularButton(
-                              icon: Icons.favorite,
-                              onPressed: () {},
-                              iconColor: Colors.red,
-                            ),
+                          BlocBuilder<FavouritesCubit, FavouritesStates>(
+                            builder: (context, state) {
+                              return Expanded(
+                                child: CircularButton(
+                                  icon: Icons.favorite,
+                                  onPressed: () {
+                                    FavouritesCubit.get(context)
+                                        .addOrRemoveFavourite(product: product);
+                                    FavouritesCubit.get(context).getFavourites();
+                                  },
+                                  iconColor: FavouritesCubit.get(context)
+                                          .favouriteProductsIds
+                                          .contains(product.id)
+                                      ? Colors.red
+                                      : Colors.black26,
+                                ),
+                              );
+                            },
                           ),
                           Expanded(
                             child: CircularButton(

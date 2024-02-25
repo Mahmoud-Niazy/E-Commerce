@@ -33,6 +33,8 @@ class SearchView extends StatelessWidget {
                     height: screenSize.height * .02,
                   ),
                   BlocBuilder<SearchCubit, SearchStates>(
+                    buildWhen:(previous,current)=> (current is SearchSuccessState ||
+                        current is SearchLoadingState ),
                     builder: (context, state) {
                       return ShakeTransition(
                         duration: const Duration(

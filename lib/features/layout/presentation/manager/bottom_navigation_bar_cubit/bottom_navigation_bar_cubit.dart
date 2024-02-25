@@ -17,7 +17,7 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarStates> {
 
   List<Widget> screens = [
     const HomeView(),
-    const SearchView(),
+    SearchView(),
     const FavouritesView(),
     const SettingsView(),
 

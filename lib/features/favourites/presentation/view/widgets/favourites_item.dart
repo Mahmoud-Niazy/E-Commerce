@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/functions/navigation.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/home/presentation/view/product_details_view.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/app_constance/app_constance.dart';
@@ -43,7 +44,7 @@ class FavouritesItem extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(2),
                   decoration:
-                  const BoxDecoration(color: AppConstance.primaryColor),
+                      const BoxDecoration(color: AppConstance.primaryColor),
                   child: Text(
                     S.of(context).Discount,
                     style: AppStyles.style13,
@@ -80,7 +81,10 @@ class FavouritesItem extends StatelessWidget {
                           Expanded(
                             child: CircularButton(
                               icon: Icons.favorite,
-                              onPressed: () {},
+                              onPressed: () {
+                                FavouritesCubit.get(context)
+                                    .addOrRemoveFavourite(product: product);
+                              },
                               iconColor: Colors.red,
                             ),
                           ),

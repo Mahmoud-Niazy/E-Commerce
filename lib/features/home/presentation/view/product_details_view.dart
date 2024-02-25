@@ -2,6 +2,7 @@ import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:ecommerce/core/widgets/circular_button.dart';
 import 'package:ecommerce/core/widgets/custom_button.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/product_images_indicator.dart';
 import 'package:ecommerce/core/widgets/shake_transition.dart';
 import 'package:ecommerce/features/home/data/models/product_model.dart';
@@ -9,8 +10,10 @@ import 'package:ecommerce/features/home/presentation/view/widgets/product_cart.d
 import 'package:ecommerce/features/home/presentation/view/widgets/rate_item.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/app_styles/app_styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../../favourites/presentation/manager/favourites_cubit/favourites_states.dart';
 
 class ProductDetailsView extends StatelessWidget {
   final ProductModel product;
@@ -22,9 +25,7 @@ class ProductDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery
-        .of(context)
-        .size;
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
@@ -55,14 +56,25 @@ class ProductDetailsView extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              Expanded(
-                                child: CircularButton(
-                                  icon: Icons.favorite,
-                                  iconColor: Colors.red,
-                                  onPressed: () {},
-                                ),
+                              BlocBuilder<FavouritesCubit, FavouritesStates>(
+                                builder: (context, state) {
+                                  return Expanded(
+                                    child: CircularButton(
+                                      icon: Icons.favorite,
+                                      iconColor: FavouritesCubit.get(context)
+                                              .favouriteProductsIds
+                                              .contains(product.id)
+                                          ? Colors.red
+                                          : Colors.black26,
+                                      onPressed: () {
+                                        FavouritesCubit.get(context)
+                                            .addOrRemoveFavourite(
+                                                product: product);
+                                      },
+                                    ),
+                                  );
+                                },
                               ),
-
                               Expanded(
                                 child: CircularButton(
                                   icon: Icons.shopping_cart,
@@ -124,7 +136,7 @@ class ProductDetailsView extends StatelessWidget {
                               SizedBox(
                                 width: screenSize.width * .03,
                               ),
-                               Text(
+                              Text(
                                 S.of(context).numberOfReviews,
                                 style: AppStyles.style15Grey,
                               ),
@@ -134,7 +146,7 @@ class ProductDetailsView extends StatelessWidget {
                         SizedBox(
                           height: screenSize.height * .03,
                         ),
-                         ShakeTransition(
+                        ShakeTransition(
                           duration: const Duration(
                             seconds: 3,
                           ),
@@ -179,12 +191,12 @@ class ProductDetailsView extends StatelessWidget {
                           children: [
                             Column(
                               children: [
-                                if(product.oldPrice != null)
-                                Text(
-                                  '${product.oldPrice}',
-                                  style: AppStyles.style18Grey.copyWith(
-                                      decoration: TextDecoration.lineThrough),
-                                ),
+                                if (product.oldPrice != null)
+                                  Text(
+                                    '${product.oldPrice}',
+                                    style: AppStyles.style18Grey.copyWith(
+                                        decoration: TextDecoration.lineThrough),
+                                  ),
                                 Text(
                                   '${product.price}',
                                   style: AppStyles.styles30Bold,
