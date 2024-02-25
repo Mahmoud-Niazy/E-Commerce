@@ -2,6 +2,7 @@ import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:ecommerce/core/widgets/circular_button.dart';
 import 'package:ecommerce/core/widgets/custom_button.dart';
+import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/home/presentation/view/widgets/product_images_indicator.dart';
 import 'package:ecommerce/core/widgets/shake_transition.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/app_styles/app_styles.dart';
 import '../../../../generated/l10n.dart';
+import '../../../cart/presentation/manager/cart_cubit/cart_states.dart';
 import '../../../favourites/presentation/manager/favourites_cubit/favourites_states.dart';
 
 class ProductDetailsView extends StatelessWidget {
@@ -75,12 +77,23 @@ class ProductDetailsView extends StatelessWidget {
                                   );
                                 },
                               ),
-                              Expanded(
-                                child: CircularButton(
-                                  icon: Icons.shopping_cart,
-                                  iconColor: AppConstance.primaryColor,
-                                  onPressed: () {},
-                                ),
+                              BlocBuilder<CartCubit, CartStates>(
+                                builder: (context, state) {
+                                  return Expanded(
+                                    child: CircularButton(
+                                      icon: Icons.shopping_cart,
+                                      iconColor: CartCubit.get(context).cartProductsIds.contains(product.id)
+                                          ? AppConstance.primaryColor
+                                          : Colors.black26,
+                                      onPressed: () {
+                                        CartCubit.get(context)
+                                            .addOrRemoveCartProduct(
+                                          product: product,
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),

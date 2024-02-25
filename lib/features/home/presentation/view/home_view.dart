@@ -74,7 +74,7 @@ class HomeView extends StatelessWidget {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    '${CartCubit.get(context).cartProducts.length}',
+                                    '${CartCubit.get(context).cartProductsCount}',
                                     style: AppStyles.style13,
                                   ),
                                 ),
