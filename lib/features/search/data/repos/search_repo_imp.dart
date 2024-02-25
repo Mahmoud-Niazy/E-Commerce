@@ -28,7 +28,7 @@ class SearchRepoImp extends SearchRepo {
       return right(products);
     }
       else {
-        throw (response.data['message'],);
+        throw ('Error');
       }
     }
 

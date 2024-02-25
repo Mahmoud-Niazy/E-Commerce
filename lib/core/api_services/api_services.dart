@@ -18,7 +18,7 @@ class ApiServices {
     Map<String,dynamic>? query,
   }) async{
     dio.options.headers = {
-      'lang' : 'ar',
+      'lang' : 'en',
       'Authorization' : CacheHelper.getData(key: 'token'),
     };
     var response = await dio.get(
@@ -33,14 +33,13 @@ class ApiServices {
     required Map<String,dynamic> data ,
   }) async{
     dio.options.headers = {
-      'lang' : 'ar',
+      'lang' : 'en',
       'Authorization' : CacheHelper.getData(key: 'token'),
     };
 
     return await dio.post(
       path,
       data: data,
-
     );
   }
 }

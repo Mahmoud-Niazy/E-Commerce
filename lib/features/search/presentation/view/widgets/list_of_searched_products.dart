@@ -14,35 +14,10 @@ class ListOfSearchedProducts extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return  BlocBuilder<SearchCubit, SearchStates>(
-      buildWhen: (previous, current) {
-        return previous != current &&
-            (current is SearchSuccessState ||
-                current is SearchLoadingState);
-      },
+
       builder: (context, state) {
         if (state is SearchLoadingState) {
           return const CustomCircularProgressIndicator();
-        }
-        if (state is SearchSuccessState) {
-          return ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return ShakeTransition(
-                duration: Duration(
-                  seconds: 2*index + 2,
-                ),
-                child: SearchItem(
-                    product: SearchCubit.get(context)
-                        .searchedProducts[index]),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return const CustomDivider();
-            },
-            itemCount:
-            SearchCubit.get(context).searchedProducts.length,
-          );
         }
         if (state is SearchErrorState) {
           return Center(
@@ -51,7 +26,25 @@ class ListOfSearchedProducts extends StatelessWidget{
             ),
           );
         }
-        return Container();
+        return ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return ShakeTransition(
+              duration: Duration(
+                seconds: 2*index + 2,
+              ),
+              child: SearchItem(
+                  product: SearchCubit.get(context)
+                      .searchedProducts[index]),
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const CustomDivider();
+          },
+          itemCount:
+          SearchCubit.get(context).searchedProducts.length,
+        );
       },
     );
   }

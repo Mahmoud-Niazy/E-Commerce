@@ -8,16 +8,18 @@ import '../../manager/favourites_cubit/favourites_cubit.dart';
 import '../../manager/favourites_cubit/favourites_states.dart';
 import 'favourites_item.dart';
 
-class ListOfFavourites extends StatelessWidget{
+class ListOfFavourites extends StatelessWidget {
   const ListOfFavourites({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavouritesCubit, FavouritesStates>(
       buildWhen: (previous, current) =>
-      previous != current &&
+          previous != current &&
           (current is GetFavouritesSuccessfullyState ||
-              current is GetFavouritesLoadingState),
+              current is GetFavouritesLoadingState ||
+              current is AddFavouriteState ||
+              current is RemoveFavouriteState),
       builder: (context, state) {
         if (state is GetFavouritesLoadingState) {
           return const CustomCircularProgressIndicator();
@@ -31,16 +33,15 @@ class ListOfFavourites extends StatelessWidget{
         }
 
         return ListView.separated(
-          shrinkWrap:  true,
+          shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return ShakeTransition(
               duration: Duration(
-                seconds: 1*index + 2 ,
+                seconds: 1 * index + 2,
               ),
               child: FavouritesItem(
-                  product:
-                  FavouritesCubit.get(context).allFavourites[index]),
+                  product: FavouritesCubit.get(context).allFavourites[index]),
             );
           },
           separatorBuilder: (context, index) {

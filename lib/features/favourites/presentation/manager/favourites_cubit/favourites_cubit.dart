@@ -6,6 +6,7 @@ import '../../../data/repos/favourites_repo.dart';
 class FavouritesCubit extends Cubit<FavouritesStates> {
   final FavouritesRepo favouritesRepo;
   List<ProductModel> allFavourites = [];
+  List<int> favouriteProductsIds = [];
 
   FavouritesCubit(
     this.favouritesRepo,
@@ -25,6 +26,9 @@ class FavouritesCubit extends Cubit<FavouritesStates> {
       )),
       (favourites) {
         allFavourites = favourites;
+        for (var element in allFavourites) {
+          favouriteProductsIds.add(element.id);
+        }
         emit(GetFavouritesSuccessfullyState(
         favourites,
       ));
@@ -33,13 +37,24 @@ class FavouritesCubit extends Cubit<FavouritesStates> {
   }
 
   addOrRemoveFavourite({
-    required int productId,
+    required ProductModel product,
   }) async {
-    emit(AddOrRemoveFavouriteLoadingState());
-    var data = await favouritesRepo.addOrRemoveFavourite(productId: productId);
+    if(favouriteProductsIds.contains(product.id)){
+      favouriteProductsIds.remove(product.id);
+      allFavourites.remove(product);
+      emit(RemoveFavouriteState());
+    }
+    else{
+      favouriteProductsIds.add(product.id);
+      allFavourites.add(product);
+      emit(AddFavouriteState());
+    }
+    var data = await favouritesRepo.addOrRemoveFavourite(productId: product.id);
     data.fold(
       (error) => emit(AddOrRemoveFavouriteErrorState(error.errorMessage,),),
-      (success) => emit(AddOrRemoveFavouriteSuccessfullyState(),),
+      (success) {
+        emit(ChangeFavouritesSuccessState(),);
+      },
     );
   }
 }
