@@ -5,6 +5,7 @@ import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_cub
 import 'package:ecommerce/features/favourites/data/repos/favourites_repo.dart';
 import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/home/presentation/manager/home_cubit/home_cubit.dart';
+import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/features/splash/presentation/view/splash_view.dart';
 import 'package:ecommerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'features/cart/data/repos/cart_repo.dart';
 import 'features/home/data/repos/home_repo.dart';
 import 'features/layout/presentation/manager/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
+import 'features/profile/data/repos/profile_repo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +48,12 @@ class MyApp extends StatelessWidget {
           )..getFavourites(),
         ),
         BlocProvider(
-          create: (context) => CartCubit(serviceLocator<CartRepo>())..getCartProducts(),
+          create: (context) =>
+              CartCubit(serviceLocator<CartRepo>())..getCartProducts(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ProfileCubit(serviceLocator<ProfileRepo>())..getUserData(),
         )
       ],
       child: MaterialApp(
