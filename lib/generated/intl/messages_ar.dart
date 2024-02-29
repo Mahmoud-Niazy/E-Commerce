@@ -32,6 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Discover": MessageLookupByLibrary.simpleMessage("تسوق"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب ؟"),
+        "Edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "EditProfile":
+            MessageLookupByLibrary.simpleMessage("تعديل بيانات الحساب"),
+        "Email": MessageLookupByLibrary.simpleMessage("الايميل"),
         "EnterYourEmail":
             MessageLookupByLibrary.simpleMessage("ادخل البريد الخاص بك"),
         "EnterYourName": MessageLookupByLibrary.simpleMessage("ادخل الاسم"),
@@ -41,10 +45,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("هل نسيت كلمة المرور ؟"),
+        "Info": MessageLookupByLibrary.simpleMessage("معلومات"),
         "LOGIN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "Logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "MyCart": MessageLookupByLibrary.simpleMessage("بطاقتي"),
         "MyFavourites": MessageLookupByLibrary.simpleMessage("قائمة المفضلة"),
+        "Name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "Next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "Phone": MessageLookupByLibrary.simpleMessage("الموبايل"),
         "PleaseEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("ادخل البريد الالكتروني"),
         "PleaseEnterYourName":
@@ -53,12 +62,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادخل كلمة السر"),
         "PleaseEnterYourPhone":
             MessageLookupByLibrary.simpleMessage("ادخل رقم الهاتف"),
+        "Purchases": MessageLookupByLibrary.simpleMessage("المشتريات"),
         "Search": MessageLookupByLibrary.simpleMessage("ابحث"),
         "SeeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+        "Settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "SignInToContinue":
             MessageLookupByLibrary.simpleMessage("قم بتسجيل الدخول للاستمرار"),
         "SignUp": MessageLookupByLibrary.simpleMessage("انشئ حساب"),
+        "Successfully": MessageLookupByLibrary.simpleMessage("تمت بنجاح"),
         "TotalPrice": MessageLookupByLibrary.simpleMessage("السعر الكلي"),
+        "Update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "Welcome": MessageLookupByLibrary.simpleMessage("اهلا بك"),
         "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 مراجعه"),
         "onBoarding1":

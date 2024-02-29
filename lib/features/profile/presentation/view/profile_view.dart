@@ -1,7 +1,13 @@
 import 'package:ecommerce/core/app_constance/app_constance.dart';
+import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/features/profile/presentation/view/widgets/setting_item.dart';
 import 'package:ecommerce/features/profile/presentation/view/widgets/user_data_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/functions/navigation.dart';
+import '../../../../generated/l10n.dart';
+import 'edit_profile_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -31,36 +37,46 @@ class ProfileView extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: screenSize.width * .1),
                 child: Column(
                   children: [
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SettingItem(
+                         SettingItem(
                           icon: Icons.logout,
-                          title: 'Logout',
+                          title: S.of(context).Logout,
                           iconColor: Colors.red,
                           borderColor: Colors.black26,
                         ),
-                        SettingItem(
-                          icon: Icons.edit,
-                          title: 'Edit',
-                          borderColor: AppConstance.primaryColor,
+                        GestureDetector(
+                          onTap: (){
+                            if(BlocProvider.of<ProfileCubit>(context).user != null) {
+                              navigate(
+                              context: context,
+                              screen:  const EditProfileView(),
+                            );
+                            }
+                          },
+                          child:  SettingItem(
+                            icon: Icons.edit,
+                            title: S.of(context).Edit,
+                            borderColor: AppConstance.primaryColor,
+                          ),
                         ),
                       ],
                     ),
                     SizedBox(
                       height: screenSize.height * .02,
                     ),
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SettingItem(
                           icon: Icons.shopping_cart_outlined,
-                          title: 'Purchases',
+                          title: S.of(context).Purchases,
                           borderColor: AppConstance.primaryColor,
                         ),
                         SettingItem(
                           icon: Icons.info_outline,
-                          title: 'Info',
+                          title: S.of(context).Info,
                           borderColor: Colors.black26,
                         ),
                       ],

@@ -15,7 +15,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, List<BannerModel>>> getBanners() async {
     try {
-      var response = await apiServices.getData(endPoint: 'home');
+      var response = await apiServices.getData(path: 'home');
       if (response['status'] == true) {
         List<BannerModel> banners = [];
         response['data']['banners'].forEach((banner) {
@@ -37,7 +37,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, List<ProductModel>>> getProducts() async {
     try {
-      var response = await apiServices.getData(endPoint: 'home');
+      var response = await apiServices.getData(path: 'home');
       if (response['status'] == true) {
         List<ProductModel> products = [];
         response['data']['products'].forEach((product) {
@@ -59,7 +59,7 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<Either<Failure, List<CategoryModel>>> getCategories() async {
     try {
-      var response = await apiServices.getData(endPoint: 'categories');
+      var response = await apiServices.getData(path: 'categories');
       if (response['status'] == true) {
         List<CategoryModel> categories = [];
         response['data']['data'].forEach((category) {
@@ -83,7 +83,7 @@ class HomeRepoImp extends HomeRepo {
     required int categoryId,
   }) async {
     try {
-      var response = await apiServices.getData(endPoint: 'products?category_id=$categoryId');
+      var response = await apiServices.getData(path: 'products?category_id=$categoryId');
       if (response['status'] == true) {
         List<ProductModel> products = [];
         response['data']['data'].forEach((product) {

@@ -32,5 +32,17 @@
   "Checkout" :  "ادفع",
   "TotalPrice" : "السعر الكلي",
   "Discount" : "تخفيض" ,
-  "MyFavourites" : "قائمة المفضلة"
+  "MyFavourites" : "قائمة المفضلة",
+  "Settings" : "الاعدادات",
+  "Logout" : "تسجيل الخروج" ,
+  "Edit" : "تعديل" ,
+  "Purchases" : "المشتريات" ,
+  "Info" : "معلومات" ,
+  "EditProfile" : "تعديل بيانات الحساب" ,
+  "Update"  : "تحديث" ,
+  "Name" : "الاسم" ,
+  "Email" : "الايميل",
+  "Phone" : "الموبايل",
+  "Password" : "كلمة المرور",
+  "Successfully" : "تمت بنجاح"
 }

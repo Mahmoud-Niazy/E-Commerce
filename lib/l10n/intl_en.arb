@@ -32,7 +32,20 @@
   "Checkout" :  "Checkout",
   "TotalPrice" : "TotalPrice",
   "Discount" : "Discount",
-  "MyFavourites" : "My Favourites"
+  "MyFavourites" : "My Favourites",
+  "Settings" : "Settings",
+  "Logout" : "Logout" ,
+  "Edit" : "Edit" ,
+  "Purchases" : "Purchases" ,
+  "Info" : "Info" ,
+  "EditProfile" : "EditProfile" ,
+  "Update"  : "Update" ,
+  "Name" : "Name" ,
+  "Email" : "Email",
+  "Phone" : "Phone",
+  "Password" : "Password" ,
+  "Successfully" : "Successfully"
+
 
 
 

@@ -31,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "Discover": MessageLookupByLibrary.simpleMessage("Discover"),
         "DontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\\\'t have an account ?"),
+        "Edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "EditProfile": MessageLookupByLibrary.simpleMessage("EditProfile"),
+        "Email": MessageLookupByLibrary.simpleMessage("Email"),
         "EnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "EnterYourName":
@@ -41,10 +44,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Your Phone"),
         "ForgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+        "Info": MessageLookupByLibrary.simpleMessage("Info"),
         "LOGIN": MessageLookupByLibrary.simpleMessage("LOGIN"),
+        "Logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "MyCart": MessageLookupByLibrary.simpleMessage("My Cart"),
         "MyFavourites": MessageLookupByLibrary.simpleMessage("My Favourites"),
+        "Name": MessageLookupByLibrary.simpleMessage("Name"),
         "Next": MessageLookupByLibrary.simpleMessage("Next"),
+        "Password": MessageLookupByLibrary.simpleMessage("Password"),
+        "Phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "PleaseEnterYourEmail":
             MessageLookupByLibrary.simpleMessage("Please Enter Your Email"),
         "PleaseEnterYourName":
@@ -53,12 +61,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Enter Your Password"),
         "PleaseEnterYourPhone":
             MessageLookupByLibrary.simpleMessage("Please Enter Your Phone"),
+        "Purchases": MessageLookupByLibrary.simpleMessage("Purchases"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "SeeAll": MessageLookupByLibrary.simpleMessage("SeeAll"),
+        "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "SignInToContinue":
             MessageLookupByLibrary.simpleMessage("SignIn to continue"),
         "SignUp": MessageLookupByLibrary.simpleMessage("SignUp"),
+        "Successfully": MessageLookupByLibrary.simpleMessage("Successfully"),
         "TotalPrice": MessageLookupByLibrary.simpleMessage("TotalPrice"),
+        "Update": MessageLookupByLibrary.simpleMessage("Update"),
         "Welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "numberOfReviews": MessageLookupByLibrary.simpleMessage("117 reviews"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
