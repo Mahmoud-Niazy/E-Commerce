@@ -11,11 +11,15 @@ import 'package:ecommerce/core/widgets/custom_text_button.dart';
 import 'package:ecommerce/core/widgets/custom_text_form_field.dart';
 import 'package:ecommerce/features/auth/data/repos/auth_repo.dart';
 import 'package:ecommerce/features/auth/presentation/view/register_view.dart';
+import 'package:ecommerce/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:ecommerce/features/favourites/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:ecommerce/features/layout/presentation/view/layout_view.dart';
+import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../home/presentation/manager/home_cubit/home_cubit.dart';
 import '../manager/login_cubit/login_cubit.dart';
 import '../manager/login_cubit/login_states.dart';
 
@@ -124,6 +128,11 @@ class LoginView extends StatelessWidget {
                             color: AppConstance.primaryColor,
                           );
                           await CacheHelper.saveData(key: 'token', value: state.token);
+                          ProfileCubit.get(context).getUserData();
+                          HomeCubit.get(context).getAllProducts();
+                          FavouritesCubit.get(context).getFavourites();
+                          CartCubit.get(context).getCartProducts();
+
                           navigateAndRemoveUntil(context: context, screen: const LayoutView(),);
                           emptyFields();
 

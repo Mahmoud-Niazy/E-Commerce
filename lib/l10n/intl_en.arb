@@ -44,7 +44,8 @@
   "Email" : "Email",
   "Phone" : "Phone",
   "Password" : "Password" ,
-  "Successfully" : "Successfully"
+  "Successfully" : "Successfully" ,
+  "NoInternetConnection" : "No Internet Connection"
 
 
 
