@@ -389,6 +389,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Settings`
+  String get Settings {
+    return Intl.message(
+      'Settings',
+      name: 'Settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get Logout {
+    return Intl.message(
+      'Logout',
+      name: 'Logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get Edit {
+    return Intl.message(
+      'Edit',
+      name: 'Edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purchases`
+  String get Purchases {
+    return Intl.message(
+      'Purchases',
+      name: 'Purchases',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Info`
+  String get Info {
+    return Intl.message(
+      'Info',
+      name: 'Info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EditProfile`
+  String get EditProfile {
+    return Intl.message(
+      'EditProfile',
+      name: 'EditProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get Update {
+    return Intl.message(
+      'Update',
+      name: 'Update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get Name {
+    return Intl.message(
+      'Name',
+      name: 'Name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get Email {
+    return Intl.message(
+      'Email',
+      name: 'Email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get Phone {
+    return Intl.message(
+      'Phone',
+      name: 'Phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get Password {
+    return Intl.message(
+      'Password',
+      name: 'Password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully`
+  String get Successfully {
+    return Intl.message(
+      'Successfully',
+      name: 'Successfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -13,3 +13,13 @@ class GetUserDataErrorState extends ProfileStates{
   final String error;
   GetUserDataErrorState(this.error);
 }
+
+class UpdateUserDataLoadingState extends ProfileStates{}
+class UpdateUserDataSuccessfullyState extends ProfileStates{
+  final UserModel userData ;
+  UpdateUserDataSuccessfullyState(this.userData);
+}
+class UpdateUserDataErrorState extends ProfileStates{
+  final String error;
+  UpdateUserDataErrorState(this.error);
+}

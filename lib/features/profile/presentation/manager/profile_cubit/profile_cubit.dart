@@ -8,9 +8,11 @@ class ProfileCubit extends Cubit<ProfileStates> {
   final ProfileRepo profileRepo;
 
   ProfileCubit(this.profileRepo) : super(ProfileInitialState());
-  static ProfileCubit get(context)=> BlocProvider.of<ProfileCubit>(context);
 
-   UserModel? user ;
+  static ProfileCubit get(context) => BlocProvider.of<ProfileCubit>(context);
+
+  UserModel? user;
+
   getUserData() async {
     emit(GetUserDataLoadingState());
     var data = await profileRepo.getUserData();
@@ -22,6 +24,36 @@ class ProfileCubit extends Cubit<ProfileStates> {
         user = userData;
         emit(GetUserDataSuccessfullyState(userData));
       },
+    );
+  }
+
+  updateUserData({
+    required String name,
+    required String email,
+    required String phone,
+    required String password,
+    required String image,
+  }) async {
+    emit(UpdateUserDataLoadingState());
+    var data = await profileRepo.updateUserData(
+      name: name,
+      email: email,
+      phone: phone,
+      password: password,
+      image: image,
+    );
+
+    data.fold(
+      (failure) => emit(
+        UpdateUserDataErrorState(
+          failure.errorMessage,
+        ),
+      ),
+      (userData) => emit(
+        UpdateUserDataSuccessfullyState(
+          userData,
+        ),
+      ),
     );
   }
 }

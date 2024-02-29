@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/app_assets/app_assets.dart';
 import '../../../../../core/app_constance/app_constance.dart';
 import '../../../../../core/app_styles/app_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/profile_cubit/profile_states.dart';
 
 class UserDataItem extends StatelessWidget {
@@ -44,7 +45,7 @@ class UserDataItem extends StatelessWidget {
                   width: screenSize.width * .04,
                 ),
                 Text(
-                  'Settings',
+                  S.of(context).Settings,
                   style: AppStyles.styles30Bold.copyWith(color: Colors.white),
                 ),
               ],
@@ -87,17 +88,20 @@ class UserDataItem extends StatelessWidget {
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      height: screenSize.height * .15,
-                      width: screenSize.width * .25,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            AppAssets.avatar,
+                    Hero(
+                      tag: 'avatar',
+                      child: Container(
+                        height: screenSize.height * .15,
+                        width: screenSize.width * .25,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              AppAssets.avatar,
+                            ),
                           ),
+                          shape: BoxShape.circle,
                         ),
-                        shape: BoxShape.circle,
                       ),
                     ),
                     Text(

@@ -14,15 +14,15 @@ class ApiServices {
   }
 
   Future<dynamic> getData({
-    required String endPoint,
-    Map<String,dynamic>? query,
-  }) async{
+    required String path,
+    Map<String, dynamic>? query,
+  }) async {
     dio.options.headers = {
-      'lang' : 'en',
-      'Authorization' : CacheHelper.getData(key: 'token'),
+      'lang': 'en',
+      'Authorization': CacheHelper.getData(key: 'token'),
     };
     var response = await dio.get(
-      endPoint,
+      path,
       queryParameters: query,
     );
     return response.data;
@@ -30,14 +30,29 @@ class ApiServices {
 
   Future<Response> postData({
     required String path,
-    required Map<String,dynamic> data ,
-  }) async{
+    required Map<String, dynamic> data,
+  }) async {
     dio.options.headers = {
-      'lang' : 'en',
-      'Authorization' : CacheHelper.getData(key: 'token'),
+      'lang': 'en',
+      'Authorization': CacheHelper.getData(key: 'token'),
     };
 
     return await dio.post(
+      path,
+      data: data,
+    );
+  }
+
+  Future<Response> putData({
+    required String path,
+    required Map<String, dynamic> data,
+  }) async {
+    dio.options.headers = {
+      'lang': 'en',
+      'Authorization': CacheHelper.getData(key: 'token'),
+    };
+
+    return await dio.put(
       path,
       data: data,
     );

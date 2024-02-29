@@ -25,4 +25,7 @@ class UserModel {
       email: json['email'],
     );
   }
+
+
+
 }

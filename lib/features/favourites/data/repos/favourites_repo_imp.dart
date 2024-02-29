@@ -15,7 +15,7 @@ class FavouritesRepoImp extends FavouritesRepo {
   @override
   Future<Either<Failure, List<ProductModel>>> getFavourites() async {
     try {
-      var response = await apiServices.getData(endPoint: 'favorites');
+      var response = await apiServices.getData(path: 'favorites');
       if (response['status'] == true) {
         List<ProductModel> favourites = [];
         response['data']['data'].forEach((favourite) {

@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               ProfileCubit(serviceLocator<ProfileRepo>())..getUserData(),
-        )
+        ),
       ],
       child: MaterialApp(
         locale: const Locale('en'),

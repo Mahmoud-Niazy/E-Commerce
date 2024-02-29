@@ -15,7 +15,7 @@ class CartRepoImp extends CartRepo {
   @override
   Future<Either<Failure, List<ProductModel>>> getCartProducts() async{
     try {
-      var response = await apiServices.getData(endPoint: 'carts');
+      var response = await apiServices.getData(path: 'carts');
       if (response['status'] == true) {
         List<ProductModel> cart = [];
         response['data']['cart_items'].forEach((product) {
