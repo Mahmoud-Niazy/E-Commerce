@@ -44,5 +44,7 @@
   "Email" : "الايميل",
   "Phone" : "الموبايل",
   "Password" : "كلمة المرور",
-  "Successfully" : "تمت بنجاح"
+  "Successfully" : "تمت بنجاح" ,
+  "NoInternetConnection" : "لا يوجد اتصال بالانترنت"
+
 }

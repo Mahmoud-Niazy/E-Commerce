@@ -11,6 +11,8 @@ import 'package:ecommerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'core/app_keys/app_keys.dart';
 import 'features/cart/data/repos/cart_repo.dart';
 import 'features/home/data/repos/home_repo.dart';
 import 'features/layout/presentation/manager/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
@@ -18,6 +20,7 @@ import 'features/profile/data/repos/profile_repo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = AppKeys.stripePublishableKey;
   runApp(const MyApp());
   ApiServices.init();
   ServicesLocator.init();

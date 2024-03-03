@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/app_constance/app_constance.dart';
+import 'package:ecommerce/features/auth/presentation/view/login_view.dart';
 import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/features/profile/presentation/view/widgets/setting_item.dart';
 import 'package:ecommerce/features/profile/presentation/view/widgets/user_data_item.dart';
@@ -37,25 +38,34 @@ class ProfileView extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: screenSize.width * .1),
                 child: Column(
                   children: [
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                         SettingItem(
-                          icon: Icons.logout,
-                          title: S.of(context).Logout,
-                          iconColor: Colors.red,
-                          borderColor: Colors.black26,
+                        GestureDetector(
+                          onTap: () {
+                            navigateAndRemoveUntil(
+                              context: context,
+                              screen: const LoginView(),
+                            );
+                          },
+                          child: SettingItem(
+                            icon: Icons.logout,
+                            title: S.of(context).Logout,
+                            iconColor: Colors.red,
+                            borderColor: Colors.black26,
+                          ),
                         ),
                         GestureDetector(
-                          onTap: (){
-                            if(BlocProvider.of<ProfileCubit>(context).user != null) {
+                          onTap: () {
+                            if (BlocProvider.of<ProfileCubit>(context).user !=
+                                null) {
                               navigate(
-                              context: context,
-                              screen:  const EditProfileView(),
-                            );
+                                context: context,
+                                screen: const EditProfileView(),
+                              );
                             }
                           },
-                          child:  SettingItem(
+                          child: SettingItem(
                             icon: Icons.edit,
                             title: S.of(context).Edit,
                             borderColor: AppConstance.primaryColor,
@@ -66,7 +76,7 @@ class ProfileView extends StatelessWidget {
                     SizedBox(
                       height: screenSize.height * .02,
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SettingItem(

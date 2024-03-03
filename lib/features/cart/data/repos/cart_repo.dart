@@ -9,4 +9,11 @@ abstract class CartRepo {
   Future<Either<Failure, void>> addOrRemoveCartProduct({
     required int productId,
 });
+
+  Future<Either<Failure,void>> makePayment({
+    required String amount ,
+    required String currency ,
+    required String customerStripeId,
+
+  });
 }

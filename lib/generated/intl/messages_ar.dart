@@ -52,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "MyFavourites": MessageLookupByLibrary.simpleMessage("قائمة المفضلة"),
         "Name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "Next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "NoInternetConnection":
+            MessageLookupByLibrary.simpleMessage("لا يوجد اتصال بالانترنت"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "Phone": MessageLookupByLibrary.simpleMessage("الموبايل"),
         "PleaseEnterYourEmail":
