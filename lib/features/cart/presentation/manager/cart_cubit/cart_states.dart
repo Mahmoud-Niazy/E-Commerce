@@ -38,3 +38,12 @@ class DecreaseCountState extends CartStates{}
 
 class CalcTotalPriceState extends CartStates{}
 
+
+class PaymentLoadingState extends CartStates{}
+class PaymentSuccessState extends CartStates{}
+class PaymentErrorState extends CartStates{
+  final String error ;
+  PaymentErrorState(this.error);
+}
+
+

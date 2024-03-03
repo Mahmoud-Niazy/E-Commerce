@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/api_services/api_services.dart';
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
+import 'package:ecommerce/core/payment_service/payment_service.dart';
 import 'package:ecommerce/features/auth/data/models/user_registration_input_model.dart';
 import '../../../../core/failure/failure.dart';
 import 'auth_repo.dart';
@@ -24,6 +26,12 @@ class AuthRepoImp extends AuthRepo {
         },
       );
       if (response.data['status'] == true) {
+        String customerStripeId = await PaymentService()
+            .createCustomer(name: response.data['data']['name']);
+        await CacheHelper.saveData(
+          key: 'customerStripeId',
+          value: customerStripeId,
+        );
         return right(response.data['data']['token']);
       } else {
         throw (response.data['message'],);

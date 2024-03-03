@@ -1,7 +1,9 @@
+import 'package:ecommerce/core/functions/navigation.dart';
+import 'package:ecommerce/features/cart/presentation/view/recepit_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/app_styles/app_styles.dart';
+import '../../../../../core/cache_helper/cache_helper.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_progress_indicator.dart';
 import '../../../../../core/widgets/custom_divider.dart';
@@ -25,7 +27,9 @@ class CartProductsList extends StatelessWidget {
                   current is IncreaseCountState ||
                   current is DecreaseCountState) ||
           current is AddCartProductState ||
-          current is RemoveCartProductState|| !(previous is RemoveCartProductState && current is GetCartProductsSuccessfullyState ),
+          current is RemoveCartProductState ||
+          !(previous is RemoveCartProductState &&
+              current is GetCartProductsSuccessfullyState),
       builder: (context, state) {
         if (state is GetCartProductsLoadingState) {
           return const CustomCircularProgressIndicator();
@@ -86,9 +90,32 @@ class CartProductsList extends StatelessWidget {
                       SizedBox(
                         height: screenSize.height * .01,
                       ),
-                      CustomButton(
-                        onPressed: () {},
-                        title: S.of(context).Checkout,
+                      BlocConsumer<CartCubit, CartStates>(
+                        listener: (context, state) {
+                          if (state is PaymentSuccessState) {
+                            navigateAndRemoveUntil(
+                              context: context,
+                              screen: const PaymentReceiptView(),
+                            );
+                          }
+                        },
+                        builder: (context, state) {
+                          return CustomButton(
+                            onPressed: () async {
+                              CartCubit.get(context).makePayment(
+                                amount:
+                                    (CartCubit.get(context).calcTotalPrice() *
+                                            100)
+                                        .toString(),
+                                currency: 'usd',
+                                customerStripeId: await CacheHelper.getData(
+                                        key: 'customerStripeId') ??
+                                    '',
+                              );
+                            },
+                            title: S.of(context).Checkout,
+                          );
+                        },
                       )
                     ],
                   ),

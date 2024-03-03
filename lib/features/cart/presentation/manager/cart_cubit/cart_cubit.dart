@@ -7,7 +7,7 @@ class CartCubit extends Cubit<CartStates> {
   final CartRepo cartRepo;
   List<ProductModel> cartProducts = [];
   List<int> everyProductCount = [];
-  List<int> cartProductsIds =[];
+  List<int> cartProductsIds = [];
   int cartProductsCount = 0;
 
   CartCubit(
@@ -17,7 +17,7 @@ class CartCubit extends Cubit<CartStates> {
   static CartCubit get(context) => BlocProvider.of<CartCubit>(context);
 
   getCartProducts() async {
-    cartProductsIds =[];
+    cartProductsIds = [];
     emit(GetCartProductsLoadingState());
     var data = await cartRepo.getCartProducts();
     data.fold(
@@ -26,7 +26,7 @@ class CartCubit extends Cubit<CartStates> {
       )),
       (cart) {
         cartProducts = cart;
-        for(int i =0; i < cartProducts.length ; i++){
+        for (int i = 0; i < cartProducts.length; i++) {
           everyProductCount.add(1);
           cartProductsIds.add(cartProducts[i].id);
           // totalPrice += cartProducts[i].price * productsCount[i];
@@ -35,43 +35,39 @@ class CartCubit extends Cubit<CartStates> {
         emit(GetCartProductsSuccessfullyState(
           cart,
         ));
-
       },
     );
   }
 
-  increaseCount(int index){
+  increaseCount(int index) {
     everyProductCount[index]++;
     calcTotalPrice();
     emit(IncreaseCountState());
   }
 
-  decreaseCount(int index){
+  decreaseCount(int index) {
     everyProductCount[index]--;
     calcTotalPrice();
     emit(DecreaseCountState());
   }
 
-  calcTotalPrice(){
+  calcTotalPrice() {
     num total = 0;
-    for (int i =0 ; i<cartProducts.length ;i ++) {
+    for (int i = 0; i < cartProducts.length; i++) {
       total += cartProducts[i].price * everyProductCount[i];
     }
-   return total;
+    return total;
   }
-
-
 
   addOrRemoveCartProduct({
     required ProductModel product,
   }) async {
-    if(cartProducts.contains(product)){
+    if (cartProducts.contains(product)) {
       cartProducts.remove(product);
       cartProductsIds.remove(product.id);
       cartProductsCount--;
       emit(RemoveCartProductState());
-    }
-    else{
+    } else {
       cartProducts.add(product);
       cartProductsIds.add(product.id);
       cartProductsCount++;
@@ -80,7 +76,7 @@ class CartCubit extends Cubit<CartStates> {
     var data = await cartRepo.addOrRemoveCartProduct(productId: product.id);
     data.fold(
       (error) => emit(AddOrRemoveCartProductErrorState(error.errorMessage)),
-      (success) async{
+      (success) async {
         await getCartProducts();
 
         emit(ChangeCartProductsLoadingState());
@@ -88,6 +84,22 @@ class CartCubit extends Cubit<CartStates> {
     );
   }
 
-
-
+  makePayment({
+    required String amount,
+    required String currency,
+    required String customerStripeId,
+  }) async {
+    emit(PaymentLoadingState());
+    var data = await cartRepo.makePayment(
+      amount: amount,
+      currency: currency,
+      customerStripeId: customerStripeId,
+    );
+    data.fold(
+      (failure) => emit(PaymentErrorState(
+        failure.errorMessage,
+      )),
+      (success) => emit(PaymentSuccessState()),
+    );
+  }
 }
