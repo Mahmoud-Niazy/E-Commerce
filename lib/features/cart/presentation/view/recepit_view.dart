@@ -49,54 +49,56 @@ class PaymentReceiptView extends StatelessWidget {
                   left: 23,
                   right: 23,
                 ),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Thank You',
-                      style: AppStyles.style25,
-                    ),
-                    Text(
-                      'Your transaction was success',
-                      style: AppStyles.style20.copyWith(
-                        color: Colors.grey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Thank You',
+                        style: AppStyles.style25,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    PaymentReceiptInfoItem(
-                      title: 'Date',
-                      value: DateTime.now().toString().split(' ')[0],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    PaymentReceiptInfoItem(
-                      title: 'Time',
-                      value:
-                          '${TimeOfDay.now().hour}:${TimeOfDay.now().minute} ',
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const PaymentReceiptInfoItem(
-                      title: 'To',
-                      value: 'Mahmoud',
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const Divider(),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    TotalPriceItem(
-                      price: '${CartCubit.get(context).calcTotalPrice()}',
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
+                      Text(
+                        'Your transaction was success',
+                        style: AppStyles.style20.copyWith(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      PaymentReceiptInfoItem(
+                        title: 'Date',
+                        value: DateTime.now().toString().split(' ')[0],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      PaymentReceiptInfoItem(
+                        title: 'Time',
+                        value:
+                            '${TimeOfDay.now().hour}:${TimeOfDay.now().minute} ',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const PaymentReceiptInfoItem(
+                        title: 'To',
+                        value: 'Mahmoud',
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Divider(),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      TotalPriceItem(
+                        price: '${CartCubit.get(context).calcTotalPrice()}',
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const CheckCircle(),

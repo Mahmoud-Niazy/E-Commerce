@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/app_constance/app_constance.dart';
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:ecommerce/features/auth/presentation/view/login_view.dart';
 import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:ecommerce/features/profile/presentation/view/widgets/setting_item.dart';
@@ -42,7 +43,8 @@ class ProfileView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          onTap: () {
+                          onTap: () async{
+                            await CacheHelper.removeData(key: 'token',);
                             navigateAndRemoveUntil(
                               context: context,
                               screen: const LoginView(),

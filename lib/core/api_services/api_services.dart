@@ -18,7 +18,7 @@ class ApiServices {
     Map<String, dynamic>? query,
   }) async {
     dio.options.headers = {
-      'lang': 'en',
+      'lang': CacheHelper.getData(key: 'langAr') == true ? 'ar' : 'en' ,
       'Authorization': CacheHelper.getData(key: 'token'),
     };
     var response = await dio.get(
@@ -33,7 +33,7 @@ class ApiServices {
     required Map<String, dynamic> data,
   }) async {
     dio.options.headers = {
-      'lang': 'en',
+      'lang': CacheHelper.getData(key: 'langAr') == true ? 'ar' : 'en' ,
       'Authorization': CacheHelper.getData(key: 'token'),
     };
 
@@ -48,7 +48,7 @@ class ApiServices {
     required Map<String, dynamic> data,
   }) async {
     dio.options.headers = {
-      'lang': 'en',
+      'lang': CacheHelper.getData(key: 'langAr') == true ? 'ar' : 'en' ,
       'Authorization': CacheHelper.getData(key: 'token'),
     };
 

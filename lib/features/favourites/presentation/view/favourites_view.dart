@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/widgets/circular_button.dart';
 import 'package:ecommerce/features/favourites/presentation/view/widgets/list_of_favourites.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/app_styles/app_styles.dart';
@@ -17,12 +18,21 @@ class FavouritesView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
-                  S.of(context).MyFavourites,
-                  style:  AppStyles.style20Bold,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      S.of(context).MyFavourites,
+                      style: AppStyles.style20Bold,
+                    ),
+                    CircularButton(
+                      icon: Icons.more_horiz,
+                      onPressed: () {},
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  height: screenSize.height *.04,
+                  height: screenSize.height * .02,
                 ),
                 const ListOfFavourites(),
               ],

@@ -45,7 +45,7 @@ class RegisterView extends StatelessWidget {
                       child: Hero(
                         tag: 'avatar',
                         child: Image.asset(
-                          AppAssets.avatar,
+                          AppAssets.logo,
                           fit: BoxFit.cover,
                           height: screenSize.height * .2,
                           width: screenSize.width * .3,

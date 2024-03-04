@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "AddToCart":
             MessageLookupByLibrary.simpleMessage("اضف الي قاشمة المشتريات"),
         "All": MessageLookupByLibrary.simpleMessage("الكل"),
+        "Arabic": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "Categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "Checkout": MessageLookupByLibrary.simpleMessage("ادفع"),
         "Description": MessageLookupByLibrary.simpleMessage("الوصف"),

@@ -45,6 +45,7 @@
   "Phone" : "الموبايل",
   "Password" : "كلمة المرور",
   "Successfully" : "تمت بنجاح" ,
-  "NoInternetConnection" : "لا يوجد اتصال بالانترنت"
+  "NoInternetConnection" : "لا يوجد اتصال بالانترنت",
+  "Arabic" : "اللغة العربية"
 
 }

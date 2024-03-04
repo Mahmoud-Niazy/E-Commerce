@@ -1,9 +1,7 @@
 import 'package:ecommerce/features/home/presentation/view/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/widgets/custom_circular_progress_indicator.dart';
-import '../../../../../core/widgets/shake_transition.dart';
 import '../../manager/home_cubit/home_cubit.dart';
 import '../../manager/home_cubit/home_states.dart';
 
@@ -41,14 +39,13 @@ class GridViewWidget extends StatelessWidget {
             // return ProductItem(
             //   productModel: product,
             // );
-            return ShakeTransition(
-              offset: 250,
-              duration: const Duration(
-                seconds:  3 ,
-              ),
-              child: ProductItem(
-                productModel: product,
-              ),
+
+            // offset: 250,
+            // duration: const Duration(
+            //   seconds:  3 ,
+            // ),
+            return ProductItem(
+              productModel: product,
             );
           }).toList(),
         );
