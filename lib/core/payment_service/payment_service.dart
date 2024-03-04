@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/app_keys/app_keys.dart';
 import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,16 @@ class PaymentService {
         paymentIntentClientSecret: clientSecret,
         merchantDisplayName: 'Mahmoud Niazy',
         style: ThemeMode.light,
+        appearance: PaymentSheetAppearance(
+            colors: PaymentSheetAppearanceColors(
+          background: Colors.white,
+              icon: AppConstance.primaryColor,
+              primary: AppConstance.primaryColor,
+              componentBackground: Colors.blue.shade50,
+              componentText: AppConstance.primaryColor,
+              secondaryText: AppConstance.primaryColor,
+              placeholderText: AppConstance.primaryColor,
+        )),
         customerId: await CacheHelper.getData(key: 'customerStripeId') ?? '',
         customerEphemeralKeySecret: ephemeralKey,
       ),
@@ -60,8 +71,9 @@ class PaymentService {
     );
     String ephemeralKey = await createEphemeralKey(
       customerId: await CacheHelper.getData(
-        key: 'customerStripeId',
-      ) ?? '',
+            key: 'customerStripeId',
+          ) ??
+          '',
     );
     await initPaymentSheet(
       clientSecret: clientSecret,

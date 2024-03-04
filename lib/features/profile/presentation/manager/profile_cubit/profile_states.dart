@@ -23,3 +23,4 @@ class UpdateUserDataErrorState extends ProfileStates{
   final String error;
   UpdateUserDataErrorState(this.error);
 }
+

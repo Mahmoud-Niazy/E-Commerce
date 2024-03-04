@@ -45,7 +45,9 @@
   "Phone" : "Phone",
   "Password" : "Password" ,
   "Successfully" : "Successfully" ,
-  "NoInternetConnection" : "No Internet Connection"
+  "NoInternetConnection" : "No Internet Connection" ,
+  "Arabic" : "Arabic"
+
 
 
 

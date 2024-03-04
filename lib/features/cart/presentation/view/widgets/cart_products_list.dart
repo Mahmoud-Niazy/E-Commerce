@@ -100,6 +100,9 @@ class CartProductsList extends StatelessWidget {
                           }
                         },
                         builder: (context, state) {
+                          if(state is PaymentLoadingState){
+                            return const CustomCircularProgressIndicator();
+                          }
                           return CustomButton(
                             onPressed: () async {
                               CartCubit.get(context).makePayment(

@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/cache_helper/cache_helper.dart';
 import 'package:ecommerce/core/widgets/custom_circular_progress_indicator.dart';
 import 'package:ecommerce/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import '../../../../../core/app_constance/app_constance.dart';
 import '../../../../../core/app_styles/app_styles.dart';
 import '../../../../../generated/l10n.dart';
 import '../../manager/profile_cubit/profile_states.dart';
+import 'lang_toggle_widget.dart';
 
 class UserDataItem extends StatelessWidget {
   const UserDataItem({super.key});
@@ -32,21 +34,40 @@ class UserDataItem extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               textBaseline: TextBaseline.alphabetic,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                    size: 30,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Icon(
+                        Icons.settings,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                    SizedBox(
+                      width: screenSize.width * .04,
+                    ),
+                    Text(
+                      S.of(context).Settings,
+                      style: AppStyles.styles30Bold.copyWith(
+                        color: Colors.white,
+                        fontSize: 27
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: screenSize.width * .04,
-                ),
-                Text(
-                  S.of(context).Settings,
-                  style: AppStyles.styles30Bold.copyWith(color: Colors.white),
+                Row(
+                  children: [
+                    Text(
+                      S.of(context).Arabic,
+                      style: AppStyles.style18.copyWith(color: Colors.white),
+                    ),
+                    const LangToggleWidget(),
+                  ],
                 ),
               ],
             ),
