@@ -46,7 +46,7 @@ class OnBoardingView extends StatelessWidget {
         appBar: AppBar(
           actions: [
             CustomTextButton(
-              title: 'Skip',
+              title: S.of(context).skip,
               onPressed: () {
                 navigateAndRemoveUntil(
                   context: context,

@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding4":
             MessageLookupByLibrary.simpleMessage("Enjoy Our Discounts"),
         "showLess": MessageLookupByLibrary.simpleMessage("show less"),
-        "showMore": MessageLookupByLibrary.simpleMessage("show more")
+        "showMore": MessageLookupByLibrary.simpleMessage("show more"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip")
       };
 }
