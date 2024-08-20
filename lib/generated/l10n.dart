@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome`
   String get Welcome {
     return Intl.message(

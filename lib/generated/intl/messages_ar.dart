@@ -86,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding4":
             MessageLookupByLibrary.simpleMessage("استمتع بالتخفيضات"),
         "showLess": MessageLookupByLibrary.simpleMessage("اعرض اقل"),
-        "showMore": MessageLookupByLibrary.simpleMessage("اعرض المزيد")
+        "showMore": MessageLookupByLibrary.simpleMessage("اعرض المزيد"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطي")
       };
 }

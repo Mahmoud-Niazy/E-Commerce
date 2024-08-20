@@ -2,6 +2,8 @@ import 'package:ecommerce/core/app_constance/app_constance.dart';
 import 'package:ecommerce/core/functions/navigation.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../generated/l10n.dart';
+import '../../../../cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import '../../../data/models/product_model.dart';
 
 class ProductCart extends StatefulWidget {
@@ -224,6 +226,9 @@ class _ProductCartState extends State<ProductCart>
                     child: GestureDetector(
                       onTap: () {
                         controller.forward();
+                        if(!CartCubit.get(context).cartProductsIds.contains(widget.product.id)){
+                          CartCubit.get(context).addOrRemoveCartProduct(product: widget.product);
+                        }
                       },
                       child: Container(
                         height: 60,
@@ -245,8 +250,8 @@ class _ProductCartState extends State<ProductCart>
                                 const SizedBox(
                                   width: 5,
                                 ),
-                                const Text(
-                                  'Add to cart',
+                                 Text(
+                                  S.of(context).AddToCart,
                                   style: TextStyle(
                                       fontSize: 17, color: Colors.white),
                                 ),
