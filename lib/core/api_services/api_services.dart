@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:ecommerce/core/cache_helper/cache_helper.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiServices {
   static late Dio dio;
@@ -7,7 +8,7 @@ class ApiServices {
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://student.valuxapps.com/api/',
+        baseUrl: dotenv.env['API_BASE_URL']  ?? '',
         contentType: 'application/json',
       ),
     );

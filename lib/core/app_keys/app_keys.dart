@@ -1,4 +1,6 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 abstract class AppKeys {
-  static const String stripeSecretKey = 'sk_test_51OIGx5GOy3LUFjwhbYMSUJKX1ccO3YdVwCftKrlqj3gMR9DOk0KvFtzmlkGW7AwrhWt6pmPU2UxMUX0lUGAJImJq00mUQ9t1FG';
-  static const String stripePublishableKey = 'pk_test_51OIGx5GOy3LUFjwhb1ytmH2iGGyHwMvcz6kTd7k7Fjfcjj9Ecu0WmMEZWjaEuxnuF9yNbSX3mSWX5xBVJC8QDojX00PqiwaY8n';
+  static String stripeSecretKey = dotenv.env['STRIPE_SECRET_KEY'] ?? '';
+  static String stripePublishableKey = dotenv.env['STRIPE_PUBLISH_KEY'] ?? '';
 }
